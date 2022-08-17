@@ -1,0 +1,22 @@
+.box-container{
+    background-color: black;
+    height: auto;
+    width: 100%;
+    display: flex;
+    opacity: 0.8;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.box-1{
+    height: 200px;
+    width: 300px;
+}
+.line-1{
+    font-size: 25px;
+    color: white;
+}
+.detail{
+    color: #848484;
+    font-size: 18px;
+}
+

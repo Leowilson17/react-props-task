@@ -1,0 +1,18 @@
+.box{
+    height: auto;
+    width: auto;
+    border: 2px solid silver;
+}
+.img-design {
+    width: 200px;
+    height: 100px;
+}
+.content {
+    font-size: 18px;
+    color: black;
+    margin: auto;
+    height: 260px;
+    text-align: center;
+    width: 200px;
+    background-color: silver;
+}
