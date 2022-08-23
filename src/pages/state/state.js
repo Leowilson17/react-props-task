@@ -21,31 +21,36 @@ export class Parent extends Component {
           name: "Camera",
           img: require("../../assets/images/camera.jpg"),
           about:
-            "A camera is an optical instrument that captures a visual image. At a basic level, cameras."
+            "A camera is an optical instrument that captures a visual image. At a basic level, cameras.",
+            qty : 0
         },
         {
           name: "Shoe",
           img: require("../../assets/images/shoe.jpg"),
           about:
-            " an outer covering for the human foot typically having a thick or stiff sole with an attached."
+            " an outer covering for the human foot typically having a thick or stiff sole with an attached.",
+            qty : 0
         },
         {
           name: "Glass",
           img: require("../../assets/images/glass.jpg"),
           about:
-            "Glass is an inorganic solid material that is usually transparent or translucent as well as hard."
+            "Glass is an inorganic solid material that is usually transparent or translucent as well as hard.",
+            qty : 0
         },
         {
           name: "Headphone",
           img: require("../../assets/images/headphone.jpg"),
           about:
-            "Headphones are a pair of small loudspeaker drivers worn on or over-user ears"
+            "Headphones are a pair of small loudspeaker drivers worn on or over-user ears",
+            qty : 0
         },
         {
           name: "Watch",
           img: require("../../assets/images/watch.jpg"),
           about:
-            "A watch is a portable timepiece intended to be carried or worn by a person,keep a consistent movement"
+            "A watch is a portable timepiece intended to be carried or worn by a person,keep a consistent movement",
+            qty : 0
         }
       ],
       cartItem: []
@@ -54,6 +59,7 @@ export class Parent extends Component {
   render() {
     // this.setState() = {title : 'Mani'}
     return (
+      <div>
       <div style={flex}>
         {this.state.products.map((data, index) => (
           <Child1
@@ -64,28 +70,33 @@ export class Parent extends Component {
           />
         ))}
       </div>
+      <Child2 />
+      </div>
     );
   }
 }
 export default Parent;
 
-// var value
+var quantity;
 class Child1 extends Parent {
   addToCart = () => {
     if(!this.state.cartItem.includes(this)){
+    quantity = 1;
     this.state.cartItem.push(this)
     }
-    console.log(this.state.cartItem)
+    else{
+   quantity = quantity + 1;
+  //   this.setState = {qty : quantity}
+    this.state.cartItem.qty = quantity;
+    }
+    // console.log(this.state.cartItem)
   } 
-  render() {
+  render() {    
    return (
       <div className="product">
         <img src={this.props.pic} alt="Loading"></img>
         <p>{this.props.details}</p>
         <button onClick={() => this.addToCart()}>Add to Cart</button>
-        {this.state.cartItem.map((property,index)=>
-          <Child2 key = {index}  box = {property}/>
-          )}
       </div>
     );
   }
@@ -94,7 +105,8 @@ class Child1 extends Parent {
 class Child2 extends Child1{
   render(){
     return(
-        <div style = {cart}>Hello</div>
+        <div style = {cart}>hello
+      </div>
       )}
 }
 
