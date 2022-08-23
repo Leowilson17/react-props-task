@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import "./state.css";
+import Child1 from "./child-1"
+import Child2 from "./child-2"
 
 var flex = {
   display: "flex",
   justifyContent: "space-around"
 }
-var cart = {
-  border : '2px solid black',
-  bakcgroundColor : 'pink',
-  textAlign : 'center'
-}
+
 
 export class Parent extends Component {
   constructor() {
@@ -56,6 +54,10 @@ export class Parent extends Component {
       cartItem: []
     };
   }
+ cartItems(value) {
+   console.log('value',value)
+  //  this.setState({cartItem : [value]})
+ }
   render() {
     // this.setState() = {title : 'Mani'}
     return (
@@ -67,48 +69,26 @@ export class Parent extends Component {
             pic={data.img}
             details={data.about}
             key={index}
+            property = {data}
+            cart = {this.cartItems}
           />
         ))}
       </div>
-      <Child2 />
+      <h2>Child-2</h2>
+      <div>
+        {this.state.cartItem.map((details,index)=>
+            <Child2  key = {index} value = {details.name}/>
+          )}
+      </div>
       </div>
     );
   }
 }
 export default Parent;
 
-var quantity;
-class Child1 extends Parent {
-  addToCart = () => {
-    if(!this.state.cartItem.includes(this)){
-    quantity = 1;
-    this.state.cartItem.push(this)
-    }
-    else{
-   quantity = quantity + 1;
-  //   this.setState = {qty : quantity}
-    this.state.cartItem.qty = quantity;
-    }
-    // console.log(this.state.cartItem)
-  } 
-  render() {    
-   return (
-      <div className="product">
-        <img src={this.props.pic} alt="Loading"></img>
-        <p>{this.props.details}</p>
-        <button onClick={() => this.addToCart()}>Add to Cart</button>
-      </div>
-    );
-  }
-}
 
-class Child2 extends Child1{
-  render(){
-    return(
-        <div style = {cart}>hello
-      </div>
-      )}
-}
+
+
 
 // class Testchild extends Component {
 //   constructor () {

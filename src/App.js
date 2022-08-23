@@ -7,7 +7,6 @@ import Test from "./pages/Test/test";
 // import Second from "./pages/props/event-emitter";
 // import Call from "./pages/call-bind-apply/call";
 import Parent from "./pages/state/state"
-// import Child2 from "./pages/state/state"
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
       {/* <Second /> */}
       {/* <Call /> */}
       <Parent />
-      
     </div>
   );
 }
